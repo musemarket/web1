@@ -2,102 +2,137 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>지니ㅣ링크인바이오</title>
-  <meta name="description" content="지니 링크 인 바이오">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>양지 | 오늘의 책 추천</title>
+  <meta name="description" content="하루 10분, 오늘의 책 한 권. 요약·한줄평과 함께 바로 구매·장바구니! 일부 링크는 제휴수수료가 발생할 수 있습니다.">
   <style>
-    :root {
-      --bg: #0f1115;
-      --card: #151922;
-      --text: #e8ecf1;
-      --muted: #a6b0c3;
-      --primary: #6C7CFF;
-      --primary-hover: #5a6aee;
-      --outline: rgba(255,255,255,0.08);
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.4);
+    :root{
+      --bg:#0f1115; --card:#151922; --text:#e8ecf1; --muted:#a6b0c3;
+      --primary:#6C7CFF; --primary-hover:#5a6aee; --radius:14px;
+      --accent:#FFD166; --danger:#ff6b6b;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, "Malgun Gothic", sans-serif;
-      line-height: 1.4;
-    }
-    .wrap {
-      max-width: 560px; margin: 0 auto; padding: 32px 18px 56px;
-      display: flex; flex-direction: column; align-items: center; gap: 18px;
-    }
-    .card {
-      width: 100%; background: var(--card); border: 1px solid var(--outline);
-      border-radius: var(--radius); box-shadow: var(--shadow);
-      padding: 22px 18px;
-    }
-    header.card { text-align: center; padding-top: 28px; padding-bottom: 26px; }
-    .avatar {
-      width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--outline);
-      background: #222 center/cover no-repeat;
-      margin: 0 auto 12px;
-    }
-    h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.3px; }
-    .bio { color: var(--muted); font-size: 14px; }
-    .links { display: flex; flex-direction: column; gap: 12px; }
-    .btn {
-      display: block; width: 100%; padding: 16px 16px; border-radius: 12px;
-      background: var(--primary); color: #fff; text-decoration: none; font-weight: 700;
-      text-align: center; border: 1px solid #0000; transition: all .2s ease;
-      box-shadow: 0 6px 20px rgba(108,124,255,0.25);
-    }
-    .btn:hover, .btn:active { background: var(--primary-hover); transform: translateY(-1px); }
-    .btn.secondary {
-      background: transparent; color: var(--text); border: 1px solid var(--outline);
-      box-shadow: none;
-    }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px;
-      border: 1px solid var(--outline); border-radius: 999px; color: var(--muted); font-size: 12px;
-      background: rgba(255,255,255,0.02);
-    }
-    footer { color: var(--muted); font-size: 12px; text-align: center; }
-    .disclosure { opacity: .9; }
-    .notice { font-size: 12px; color: var(--muted); margin-top: 8px; }
-    .social { display: flex; gap: 10px; justify-content: center; margin-top: 6px; }
-    .social a { color: var(--muted); text-decoration: none; font-size: 14px; }
-    .small { font-size: 12px; color: var(--muted); }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo, "Noto Sans KR", sans-serif}
+    .wrap{max-width:720px;margin:32px auto;padding:0 16px}
+    .card{background:var(--card);border-radius:20px;padding:20px;border:1px solid #1f2532;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--primary);color:#fff;text-decoration:none;padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.08)}
+    .btn:hover{background:var(--primary-hover)}
+    .btn.secondary{background:#1a2030;color:var(--text)}
+    .pill{display:inline-flex;align-items:center;gap:6px;background:#101523;border:1px dashed #2a3246;color:var(--muted);padding:10px 12px;border-radius:12px;font-size:.92rem}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+    .book{display:flex;gap:14px;background:#121724;border:1px solid #222a3b;border-radius:16px;padding:14px}
+    .cover{width:84px;height:120px;border-radius:10px;object-fit:cover;background:#0b0e16}
+    h1{margin:0 0 8px;font-size:1.5rem} h2{margin:0 0 8px;font-size:1.1rem}
+    .muted{color:var(--muted);font-size:.95rem} small.muted{font-size:.85rem}
+    .footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .bar{position:sticky;top:0;z-index:10;margin-bottom:12px}
+    .disclosure{background:#0e1322;border:1px solid #24304a;color:#b8c1d9;padding:10px 12px;border-radius:12px}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:#0e1322;border:1px solid #26314b;padding:6px 10px;border-radius:999px;font-size:.85rem;color:#b8c1d9}
+    a.external{color:#bcd0ff}
+    .chip{display:inline-flex;gap:8px;flex-wrap:wrap}
+    .chip a{background:#121a2d;border:1px solid #26314b;border-radius:999px;color:#cdd6f4;text-decoration:none;padding:8px 12px;font-size:.92rem}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="card">
-      <!-- 프로필 이미지가 있으면 아래 URL을 교체하세요 -->
-      <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=200');"></div>
-      <h1>지니ㅣ링크인바이오</h1>
-      <p class="bio">한 곳에서 빠르게 연결돼요. 프로필 링크 모음.</p>
+    <!-- 상단 제휴 고지(노출 의무) -->
+    <div class="bar">
+      <div class="disclosure">
+        일부 링크는 쿠팡파트너스 제휴 링크로, 구매 시 소정의 수수료를 받을 수 있습니다. 가격/재고는 판매처 상황에 따라 변동될 수 있습니다.
+      </div>
+    </div>
+
+    <!-- 헤더 -->
+    <div class="card" style="display:flex;gap:16px;align-items:center">
+      <img src="https://avatars.githubusercontent.com/u/9919?s=88" alt="" width="56" height="56" style="border-radius:50%">
+      <div>
+        <h1>YangeeY | 오늘의 책</h1>
+        <div class="muted">한 곳에서 빠르게 보는 책 추천. 요약·한줄평 + 바로가기.</div>
+        <div class="chip" style="margin-top:10px">
+          <a href="#today">오늘의 픽</a>
+          <a href="#bestseller">베스트셀러</a>
+          <a href="#themes">테마별</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인 CTA -->
+    <div style="height:12px"></div>
+    <div class="row">
+      <a class="btn" href="#today">🔖 오늘의 추천 보러가기</a>
+      <a class="btn secondary" href="https://link.coupang.com/a/XXXX?src=top100" target="_blank" rel="sponsored noopener nofollow">🏆 쿠팡 베스트셀러 TOP100</a>
+    </div>
+
+    <!-- 섹션: 오늘의 책 -->
+    <div id="today" style="height:18px"></div>
+    <div class="card">
+      <h2>오늘의 책</h2>
       <div class="grid">
-        <span class="badge">🟣 링크 모음</span>
-        <span class="badge">⚡ 빠른 이동</span>
-        <span class="badge">🔒 안전 연결</span>
+        <!-- 책 카드 1 -->
+        <div class="book">
+          <img class="cover" src="https://image.yes24.com/goods/123456789/XL" alt="책 표지">
+          <div style="flex:1">
+            <strong>꾸준함의 힘</strong>
+            <div class="muted">작은 습관이 만드는 압도적 차이. 핵심만 뽑은 3문장 요약: ① 시작은 2분 ② 트리거 설계 ③ 기록으로 강화.</div>
+            <div class="footer">
+              <a class="btn" style="flex:1" href="https://link.coupang.com/a/XXXX?utm_source=linkinbio&utm_medium=btn&utm_campaign=today1" target="_blank" rel="sponsored noopener nofollow">쿠팡에서 보기</a>
+              <a class="btn secondary" style="flex:1" href="/reviews/consistency.html">요약/한줄평</a>
+            </div>
+          </div>
+        </div>
+        <!-- 책 카드 2 -->
+        <div class="book">
+          <img class="cover" src="https://image.yes24.com/goods/987654321/XL" alt="책 표지">
+          <div style="flex:1">
+            <strong>돈의 심리학</strong>
+            <div class="muted">수익률보다 지속 가능성이 더 중요. ‘오래 남는 선택’에 투자하라.</div>
+            <div class="footer">
+              <a class="btn" style="flex:1" href="https://link.coupang.com/a/YYYY?utm_source=linkinbio&utm_medium=btn&utm_campaign=today2" target="_blank" rel="sponsored noopener nofollow">쿠팡에서 보기</a>
+              <a class="btn secondary" style="flex:1" href="/reviews/money-psych.html">요약/한줄평</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+      <small class="muted">가격·배송·재고는 쿠팡 페이지에서 확인하세요.</small>
+    </div>
 
-    <section class="card links">
-      <!-- 버튼 제목과 URL만 바꾸면 됩니다 -->
-      <a class="btn" href="https://example.com" target="_blank" rel="noopener">[광고] 오늘의 특가 보기</a>
-      <a class="btn secondary" href="https://example.com" target="_blank" rel="noopener">[제휴] 내 스토어 바로가기</a>
-      <!-- 필요 시 아래처럼 더 추가 -->
-      <!-- <a class="btn" href="https://example.com" target="_blank" rel="noopener">버튼 3</a> -->
-      <p class="notice">Tip: 가장 중요한 링크를 맨 위에 두세요. 버튼은 2~5개 권장.</p>
-    </section>
-
-    <footer>
-      <p class="disclosure">일부 링크는 구매 시 제휴 수수료가 발생할 수 있습니다.</p>
-      <div class="social">
-        <!-- 필요 시 소셜 링크를 넣으세요 -->
-        <!-- <a href="https://instagram.com/yourid" target="_blank" rel="noopener">Instagram</a> ·
-        <a href="https://youtube.com/@yourid" target="_blank" rel="noopener">YouTube</a> -->
+    <!-- 섹션: 베스트셀러 바로가기 -->
+    <div id="bestseller" style="height:18px"></div>
+    <div class="card">
+      <h2>분야별 베스트셀러</h2>
+      <div class="row">
+        <a class="btn" href="https://link.coupang.com/a/AAAA?cat=it" target="_blank" rel="sponsored noopener nofollow">💻 IT/개발</a>
+        <a class="btn" href="https://link.coupang.com/a/BBBB?cat=biz" target="_blank" rel="sponsored noopener nofollow">📈 자기계발/비즈</a>
+        <a class="btn" href="https://link.coupang.com/a/CCCC?cat=lit" target="_blank" rel="sponsored noopener nofollow">📚 문학</a>
+        <a class="btn" href="https://link.coupang.com/a/DDDD?cat=edu" target="_blank" rel="sponsored noopener nofollow">👶 육아/교육</a>
       </div>
-      <p class="small">© 2025 Jini. All rights reserved.</p>
-    </footer>
+    </div>
+
+    <!-- 섹션: 테마 모음 -->
+    <div id="themes" style="height:18px"></div>
+    <div class="card">
+      <h2>테마별 모아보기</h2>
+      <div class="row">
+        <a class="btn secondary" href="/themes/side-projects.html">사이드 프로젝트</a>
+        <a class="btn secondary" href="/themes/productivity.html">생산성/습관</a>
+        <a class="btn secondary" href="/themes/investing.html">투자 입문</a>
+      </div>
+    </div>
+
+    <!-- 하단 링크 -->
+    <div style="height:12px"></div>
+    <div class="row">
+      <a class="btn secondary" href="https://www.youtube.com/@yourchannel" target="_blank" rel="noopener">▶ 유튜브</a>
+      <a class="btn secondary" href="/blog/">✍ 블로그</a>
+      <a class="btn secondary" href="/about.html">ℹ 소개</a>
+    </div>
+
+    <div style="height:18px"></div>
+    <div class="card" style="display:flex;align-items:center;gap:10px;justify-content:space-between">
+      <span class="badge">HTTPS 보안 연결</span>
+      <small class="muted">© 2025 YangeeY · 쿠팡파트너스 참여</small>
+    </div>
   </div>
 </body>
 </html>
